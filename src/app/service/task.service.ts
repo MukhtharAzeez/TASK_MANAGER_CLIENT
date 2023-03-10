@@ -22,4 +22,8 @@ export class TaskService {
   createATask(task:string, listId:string){
     return this.webRequests.post(`lists/${listId}/tasks`,{listId:listId, title:task});
   }
+
+  completeTask(task:any,completed:boolean){
+    return this.webRequests.patch('lists/tasks/update',{taskId:task._id,title:task.title,completed});
+  }
 }
