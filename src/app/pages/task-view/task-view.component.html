@@ -3,11 +3,11 @@
         <div class="sidebar has-background-white">
             <h1 class="title has-text-primary">Lists</h1>
             <div class="list-menu">
-                <a class="list-menu-item">
-                    <p>List #1</p>
+                <a class="list-menu-item" *ngFor="let list of lists" [routerLink]="['/lists',list._id]" routerLinkActive="is-active">
+                    <p>{{list.title}}</p>
                 </a>
             </div>
-            <button class="button is-primary has-text-white">+ New List</button>
+            <button class="button is-primary has-text-white" routerLink="/addList">+ New List</button>
         </div>
         <div class="task-list-container has-background-light">
             <div>
@@ -30,31 +30,35 @@
                     </div>
                 </div>
                 <!-- Task Elements -->
-                <div class="task">
-                    <div class="task-text">
-                        <p>bhkjhkljhkl</p>
+                <ng-container *ngIf="tasks.length>0; else elsePart">
+                    <div class="task" *ngFor="let task of tasks" >
+                        <div class="task-text">
+                            <p>{{task.title}}</p>
+                        </div>
+                        <div class="task-buttons">
+                            <button class="button">
+                                <div class="icon">
+                                    <i class="fas fa-edit"></i>
+                                </div>
+                            </button>
+                            <button class="button is-danger" style="margin-left: 10px">
+                                <div class="icon">
+                                    <i class="fas fa-trash"></i>
+                                </div>
+                            </button>
+                        </div>
                     </div>
-                    <div class="task-buttons">
-                        <button class="button">
-                            <div class="icon">
-                                <i class="fas fa-edit"></i>
-                            </div>
-                        </button>
-                        <button class="button is-danger" style="margin-left: 10px">
-                            <div class="icon">
-                                <i class="fas fa-trash"></i>
-                            </div>
-                        </button>
-                    </div>
-                </div>
-                <h3 class="empty-state-text">
-                    There are no tasks here! Click the add button to create a new task.
-                </h3>
-                <button class="circle-add-button button is-primary">
-                    <img src="../../../assets/plus-icon.svg" class="has-text-white" />
+                </ng-container>
+                <ng-template #elsePart>
+                    <h3 class="empty-state-text" >
+                        There are no tasks here! Click the add button to create a new task.
+                    </h3>
+                </ng-template>
+                <button *ngIf="displayAddTaskButton" class="circle-add-button button is-primary" (click)="addTask()">
+                    <h1 class="plus">+</h1>
                 </button>
             </div>
-            <div>
+            <div *ngIf="tasks.length==0">
                 <h3 class="empty-state-text">Please select a list from the sidebar</h3>
             </div>
         </div>

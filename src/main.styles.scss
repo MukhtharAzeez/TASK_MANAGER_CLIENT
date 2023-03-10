@@ -5,7 +5,7 @@
 
 $turquoise: #44ddd0;
 $teal: #0e2129;
-$light-teal: #021a2a; 
+$light-teal: #1b3546; 
 $dark-teal: #03212e;
 
 $light: #f0f0f0;
@@ -42,28 +42,28 @@ html, body {
     height: 100%;
 }
 
-// .modal-box {
-//     min-height: 200px;
-//     width: 100%;
-//     max-width: 580px;
-//     background: white;
-//     border-radius: 5px;
-//     padding: 35px;
-// }
+.modal-box {
+    min-height: 200px;
+    width: 100%;
+    max-width: 580px;
+    background: white;
+    border-radius: 5px;
+    padding: 35px;
+}
 
-// .title {
-//     font-family: 'Lato';
-//     font-size: 24px;
-//     text-transform: uppercase;
-//     letter-spacing: 2px;
-// }
+.title {
+    font-family: 'Lato';
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
 
-// .white-box {
-//     padding: 35px;
-//     background: white;
-//     border-radius: 5px;
+.white-box {
+    padding: 35px;
+    background: white;
+    border-radius: 5px;
 
-//     width: 350px;
-//     max-width: 350px;
+    width: 350px;
+    max-width: 350px;
     
-// }
+}
